@@ -13,6 +13,14 @@
 # 0 项目资源
 
 ​	本项目包括数据集（captcha）、源程序、模型结构图（resnet50.png）、模型训练损失（Captcha_tfdata.csv和Captcha.csv）和模型文件（Best_Captcha_tfdata.h5和Best_Captcha.h5），其中文件“验证码识别项目.ipynb”是未优化版本实现，附有详细讲解。文件“验证码识别项目.py”是优化后版本实现，考虑到两个版本改动较少，故该版本讲解较少。建议读者从未优化版本开始阅读。
+  由于数据集和模型文件较大，故以百度网盘的形式上传，读者可自行决定是否下载。考虑到数据集仅在未优化版本中使用且代码中涵盖了生成数据集的代码吗，故建议读者运行未优化版本的代码重新生成。
+  
+Best_Captcha_tfdata.h5：（未优化模型文件）
+链接：https://pan.baidu.com/s/1Kvben_m65odSEZMYHfNxAg?pwd=duzh 
+提取码：duzh
+Best_Captcha.h5：（优化后模型文件）
+链接：https://pan.baidu.com/s/17Bm8Co5BAXTh4mMrCgbGww?pwd=duzh 
+提取码：duzh
 
 # 1 项目介绍
 
