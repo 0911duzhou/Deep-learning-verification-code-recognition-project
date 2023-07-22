@@ -13,7 +13,7 @@
 # 0 项目资源
 
 ​	本项目包括数据集（captcha）、源程序、模型结构图（resnet50.png）、模型训练损失（Captcha_tfdata.csv和Captcha.csv）和模型文件（Best_Captcha_tfdata.h5和Best_Captcha.h5），其中文件“验证码识别项目.ipynb”是未优化版本实现，附有详细讲解。文件“验证码识别项目.py”是优化后版本实现，考虑到两个版本改动较少，故该版本讲解较少。建议读者从未优化版本开始阅读。
-  由于数据集和模型文件较大，故以百度网盘的形式上传，读者可自行决定是否下载。考虑到数据集仅在未优化版本中使用且代码中涵盖了生成数据集的代码吗，故建议读者运行未优化版本的代码重新生成。
+  由于数据集和模型文件较大，故以百度网盘的形式上传，读者可自行决定是否下载。考虑到数据集仅在未优化版本中使用且代码中涵盖了生成数据集的代码，故建议读者运行未优化版本的代码重新生成。
   
 Best_Captcha_tfdata.h5：（未优化模型文件）
 
@@ -89,7 +89,7 @@ Best_Captcha.h5：（优化后模型文件）
 
 ​                             																	图一：模型结构图 
 
-![img](https://img-blog.csdnimg.cn/0aa9cd68b1e1467580b28a7b80f981be.png)![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
+![img](https://img-blog.csdnimg.cn/0aa9cd68b1e1467580b28a7b80f981be.png)
 
 # 5 模型训练及调参 
 
@@ -113,7 +113,7 @@ Best_Captcha.h5：（优化后模型文件）
 
 ![](C:\Users\31600\Downloads\下载.png)
 
-​                   																		           图四：训练集损失值![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
+​                   																		           图四：训练集损失值
 
 ![](C:\Users\31600\Downloads\下载.png)
 
@@ -121,7 +121,7 @@ Best_Captcha.h5：（优化后模型文件）
 
 ![](C:\Users\31600\Downloads\下载.png)
 
-可以看到，模型在第10个epoch后提升就已经很不明显了，但我们设置的早停却并没有在该epoch附近结束模型训练，因为我们设置的检测指标是
+可以看到，模型在第10个epoch后提升就已经很不明显了，但我们设置的早停却并没有在该epoch附近结束模型训练，因为我们设置的检测指标是val_loss。
 
 #  6 模型评估与预测
 
@@ -149,14 +149,13 @@ Best_Captcha.h5：（优化后模型文件）
 0.9024939903846154
 ```
 
-​    模型的初始学习率为 0.01，随着模型训练学习率会逐渐降低。我们可以看到训练集的 4 个任务准确率都已经是 1 了，测试集的 4 个 任务准确率大约为 0.98 左右，有一定的过拟合现象也是正常的。 别看 0.98 的准确率好像挺高的，验证码识别可是要 4 个验证码都识别正确，最后的结果才算正确。所以真正的识别正确率大约是 4 个任务的正确率相乘约等于 0.92，在验证集上的结果也还可以，达到了0.90，当验证集规模增大时，准确率将会逼近0.92。![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
+​    模型的初始学习率为 0.01，随着模型训练学习率会逐渐降低。我们可以看到训练集的 4 个任务准确率都已经是 1 了，测试集的 4 个 任务准确率大约为 0.98 左右，有一定的过拟合现象也是正常的。 别看 0.98 的准确率好像挺高的，验证码识别可是要 4 个验证码都识别正确，最后的结果才算正确。所以真正的识别正确率大约是 4 个任务的正确率相乘约等于 0.92，在验证集上的结果也还可以，达到了0.90，当验证集规模增大时，准确率将会逼近0.92。
 
 ​                      												     	  图六：可视化预测情况 
 
-<img src="https://img-blog.csdnimg.cn/0699159fcb80479c89f9970e3ec59680.png" alt="img" style="zoom: 80%;" />![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)<img src="https://img-blog.csdnimg.cn/1e3bd1610ea843a0abf2afe70bdc8e75.png" alt="img" style="zoom: 80%;" />![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
+<img src="https://img-blog.csdnimg.cn/0699159fcb80479c89f9970e3ec59680.png" alt="img" style="zoom: 80%;" /><img src="https://img-blog.csdnimg.cn/1e3bd1610ea843a0abf2afe70bdc8e75.png" alt="img" style="zoom: 80%;" />
 
-<img src="https://img-blog.csdnimg.cn/610eddd1108c42f1b96b5a09e058b116.png" alt="img" style="zoom:80%;" />![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
-
+<img src="https://img-blog.csdnimg.cn/610eddd1108c42f1b96b5a09e058b116.png" alt="img" style="zoom:80%;" />
 ​	我们可以看到，要把 4 个验证码都预测正确其实还是挺难的，因为我这里做的验证码识别是需要区分大小写的，还有 0 小 o 大 O 等这些都比较容易混淆，所以能得到 90.2% 的准确率也还算不错了。
 
 # 7 改进策略
@@ -171,7 +170,7 @@ Best_Captcha.h5：（优化后模型文件）
 
 ​                																      图八：自定义验证码识别结果可视化
 
-![img](https://img-blog.csdnimg.cn/7505d286697e4bacb004ec5276ec3a3c.png)![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
+![img](https://img-blog.csdnimg.cn/7505d286697e4bacb004ec5276ec3a3c.png)
 
 ```python
 -----------------------------------------------------
